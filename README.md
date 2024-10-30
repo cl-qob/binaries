@@ -6,7 +6,13 @@
 [![Linux](https://img.shields.io/badge/-Linux-fcc624?logo=linux&style=flat&logoColor=black)](#)
 
 # binaries
-Store all Qob CLI binaries (snapshot)
+> Store all Qob CLI binaries (snapshot)
+
+## 🧪 Testing
+
+| Description                       | Done | Status                                                                                                                                                         |
+|-----------------------------------|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Test binaries work across all OSs | ✔    | [![Binaries](https://github.com/cl-qob/binaries/actions/workflows/binaries.yml/badge.svg)](https://github.com/cl-qob/binaries/actions/workflows/binaries.yml) |
 
 ## ⚜️ License
 
