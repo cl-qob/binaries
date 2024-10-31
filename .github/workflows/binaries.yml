@@ -15,17 +15,19 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  LISP_VER: 2.4.2
+  LISP_VER: 2.4.9
 
 jobs:
   badge:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
     steps:
-    - uses: cheeze2000/setup-sbcl@main
+    - uses: cachix/install-nix-action@v27
       with:
-        version: ${{ env.LISP_VER }}
+        nix_path: nixpkgs=channel:nixos-unstable
+
+    - name: Setup SBCL
+      run: |
+        nix profile install nixpkgs#sbcl
 
     - uses: actions/checkout@v4
 
@@ -59,9 +61,13 @@ jobs:
         - linux-x64
 
     steps:
-    - uses: cheeze2000/setup-sbcl@main
+    - uses: cachix/install-nix-action@v27
       with:
-        version: ${{ env.LISP_VER }}
+        nix_path: nixpkgs=channel:nixos-unstable
+
+    - name: Setup SBCL
+      run: |
+        nix profile install nixpkgs#sbcl
 
     - uses: actions/checkout@v4
 
@@ -87,9 +93,13 @@ jobs:
         - macos-x64
 
     steps:
-    - uses: cheeze2000/setup-sbcl@main
+    - uses: cachix/install-nix-action@v27
       with:
-        version: ${{ env.LISP_VER }}
+        nix_path: nixpkgs=channel:nixos-unstable
+
+    - name: Setup SBCL
+      run: |
+        nix profile install nixpkgs#sbcl
 
     - uses: actions/checkout@v4
 
@@ -115,9 +125,13 @@ jobs:
         - win-x64
 
     steps:
-    - uses: cheeze2000/setup-sbcl@main
+    - uses: cachix/install-nix-action@v27
       with:
-        version: ${{ env.LISP_VER }}
+        nix_path: nixpkgs=channel:nixos-unstable
+
+    - name: Setup SBCL
+      run: |
+        nix profile install nixpkgs#sbcl
 
     - uses: actions/checkout@v4
 
@@ -126,7 +140,7 @@ jobs:
         unzip ${{ matrix.targets }}.zip -d ./bin/
 
     - name: Prepare Qob (Windows)
-      run: .github/scripts/setup-qob.ps1    
+      run: .github/scripts/setup-qob.ps1
 
     - name: Test
       run: qob info
