@@ -21,7 +21,7 @@ jobs:
   badge:
     runs-on: ubuntu-latest
     steps:
-    - uses: cachix/install-nix-action@v27
+    - uses: cachix/install-nix-action@v30
       with:
         nix_path: nixpkgs=channel:nixos-unstable
 
@@ -61,7 +61,7 @@ jobs:
         - linux-x64
 
     steps:
-    - uses: cachix/install-nix-action@v27
+    - uses: cachix/install-nix-action@v30
       with:
         nix_path: nixpkgs=channel:nixos-unstable
 
@@ -93,7 +93,7 @@ jobs:
         - macos-x64
 
     steps:
-    - uses: cachix/install-nix-action@v27
+    - uses: cachix/install-nix-action@v30
       with:
         nix_path: nixpkgs=channel:nixos-unstable
 
