@@ -18,31 +18,6 @@ env:
   LISP_VER: 2.4.9
 
 jobs:
-  badge:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-
-    - uses: cl-qob/setup-qob@master
-      with:
-        version: 'snapshot'
-
-    - name: Set git config
-      run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-
-    - name: Generate SVG badges (system)
-      run: make generate_badges_system
-
-    - name: Push generated badges (system)
-      continue-on-error: true
-      run: |
-        git pull
-        git add .
-        git commit -m "Update SVG badges - system"
-        git push
-
   linux:
     runs-on: ubuntu-latest
     strategy:
