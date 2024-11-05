@@ -65,7 +65,9 @@ jobs:
         .github/scripts/setup-qob
 
     - name: Test
-      run: qob --help
+      run: |
+        ls ./bin/
+        qob --help
 
   macos:
     runs-on: macos-latest
@@ -89,7 +91,9 @@ jobs:
         .github/scripts/setup-qob
 
     - name: Test
-      run: qob --help
+      run: |
+        ls ./bin/
+        qob --help
 
   windows:
     runs-on: windows-latest
