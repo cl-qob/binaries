@@ -1,6 +1,5 @@
 <a href="#"><img align="right" src="https://raw.githubusercontent.com/cl-qob/cli/master/docs/static/logo.png" width="20%"></a>
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![SBCL Version](https://img.shields.io/badge/SBCL-2.2.9-white.svg?logo=awslambda&logoColor=white)](https://www.gnu.org/software/emacs/download.html)
 [![Windows](https://img.shields.io/badge/-Windows-lightblue?logo=windows&style=flat&logoColor=blue)](#)
 [![macOS](https://img.shields.io/badge/-macOS-lightgrey?logo=apple&style=flat&logoColor=white)](#)
 [![Linux](https://img.shields.io/badge/-Linux-fcc624?logo=linux&style=flat&logoColor=black)](#)
