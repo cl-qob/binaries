@@ -14,9 +14,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  LISP_VER: 2.4.9
-
 jobs:
   linux:
     runs-on: ubuntu-latest
@@ -76,11 +73,6 @@ jobs:
         - win-x64
 
     steps:
-    - name: Setup SBCL
-      uses: crazy-max/ghaction-chocolatey@v3
-      with:
-        args: install sbcl --version=${{ env.LISP_VER }}
-
     - name: Install Zip
       uses: crazy-max/ghaction-chocolatey@v3
       with:
