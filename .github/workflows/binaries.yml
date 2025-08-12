@@ -25,7 +25,7 @@ jobs:
         - linux-x64
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Extract tar
       run: |
@@ -49,7 +49,7 @@ jobs:
         - macos-x64
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Extract tar
       run: |
@@ -78,7 +78,7 @@ jobs:
       with:
         args: install zip
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Extract zip
       run: |
