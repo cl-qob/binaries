@@ -16,20 +16,22 @@ concurrency:
 
 jobs:
   linux:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        targets:
-        #- linux-arm64
-        - linux-x64
+        include:
+        - os: ubuntu-24.04
+          target: linux-x64
+        - os: ubuntu-24.04-arm
+          target: linux-arm64
 
     steps:
     - uses: actions/checkout@v6
 
     - name: Extract tar
       run: |
-        tar -xvzf ${{ matrix.targets }}.tar.gz -C ./bin/
+        tar -xvzf ${{ matrix.target }}.tar.gz -C ./bin/
 
     - name: Prepare Qob (Unix)
       run: |
@@ -40,20 +42,22 @@ jobs:
       run: qob --help
 
   macos:
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        targets:
-        #- macos-arm64
-        - macos-x64
+        include:
+        - os: macos-15-intel
+          target: macos-x64
+        - os: macos-15
+          target: macos-arm64
 
     steps:
     - uses: actions/checkout@v6
 
     - name: Extract tar
       run: |
-        tar -xvzf ${{ matrix.targets }}.tar.gz -C ./bin/
+        tar -xvzf ${{ matrix.target }}.tar.gz -C ./bin/
 
     - name: Prepare Qob (Unix)
       run: |
@@ -64,13 +68,15 @@ jobs:
       run: qob --help
 
   windows:
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        targets:
-        #- win-arm64
-        - win-x64
+        include:
+        - os: windows-latest
+          target: win-x64
+        - os: windows-11-arm
+          target: win-arm64
 
     steps:
     - name: Install Zip
@@ -82,7 +88,7 @@ jobs:
 
     - name: Extract zip
       run: |
-        unzip ${{ matrix.targets }}.zip -d ./bin/
+        unzip ${{ matrix.target }}.zip -d ./bin/
 
     - name: Prepare Qob (Windows)
       run: .github/scripts/setup-qob.ps1
