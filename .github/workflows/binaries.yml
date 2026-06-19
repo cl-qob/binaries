@@ -27,7 +27,7 @@ jobs:
           target: linux-arm64
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         persist-credentials: false
         fetch-depth: 1
@@ -56,7 +56,7 @@ jobs:
           target: macos-arm64
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         persist-credentials: false
         fetch-depth: 1
@@ -90,7 +90,7 @@ jobs:
       with:
         args: install zip
 
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         persist-credentials: false
         fetch-depth: 1
